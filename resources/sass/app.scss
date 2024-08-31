@@ -630,4 +630,9 @@ body {
             padding-top: $spacing-7;
         }
     }
+    .guest .download-preview {
+        .action {
+            flex-direction: column;
+        }
+    }
 }
