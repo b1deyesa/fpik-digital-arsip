@@ -62,6 +62,7 @@
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
+            pointer-events: visible;
             gap: 1em;
             width: 100%;
             min-height: 4em;
@@ -73,6 +74,7 @@
             .close {
                 cursor: pointer;
                 pointer-events: visible;
+                padding: $spacing-3;
             }
             &.success {
                 background: $success-1;

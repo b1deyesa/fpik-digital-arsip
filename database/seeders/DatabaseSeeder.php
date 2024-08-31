@@ -25,5 +25,10 @@ class DatabaseSeeder extends Seeder
             'nip' => '35200003',
             'password' => Hash::make('magox1905')
         ]);
+        \App\Models\User::create([
+            'role_id' => 1,
+            'nip' => 'adminarsip',
+            'password' => Hash::make('adminarsip2024')
+        ]);
     }
 }

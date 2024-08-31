@@ -509,6 +509,10 @@ body {
             min-height: 31px;
             width: 100%;
         }
+        th {
+            height: 3em;
+            vertical-align: center;
+        }
     }
     .table-container .table .head {
         display: flex;
