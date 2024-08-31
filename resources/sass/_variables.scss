@@ -1,0 +1,271 @@
+/*
+| --------------------------------------------
+|   Base Colors
+| --------------------------------------------
+*/
+    // Gray
+    $gray-50: #ffffff;
+    $gray-100: #f1f1f1;
+    $gray-200: #d7d7d7;
+    $gray-300: #bdbdbd;
+    $gray-400: #a4a4a4;
+    $gray-500: #8c8c8c;
+    $gray-600: #5d5d5d;
+    $gray-700: #474747;
+    $gray-800: #333333;
+    $gray-900: #202020;
+    $gray-950: #000000;
+
+    // Angel
+    $angel-5: #ffffff05;
+    $angel-10: #ffffff10;
+    $angel-20: #ffffff20;
+    $angel-30: #ffffff30;
+    $angel-40: #ffffff40;
+    $angel-50: #ffffff50;
+    $angel-60: #ffffff60;
+    $angel-70: #ffffff70;
+    $angel-80: #ffffff80;
+    $angel-90: #ffffff90;
+    $angel-95: #ffffff95;
+    
+    // Demon
+    $demon-5: #00000005;
+    $demon-10: #00000010;
+    $demon-20: #00000020;
+    $demon-30: #00000030;
+    $demon-40: #00000040;
+    $demon-50: #00000050;
+    $demon-60: #00000060;
+    $demon-70: #00000070;
+    $demon-80: #00000080;
+    $demon-90: #00000090;
+    $demon-95: #00000095;
+    
+    // Red
+    $red-50: #ffe4e5;
+    $red-100: #ffb0b1;
+    $red-200: #ff7f81;
+    $red-300: #ff5155;
+    $red-400: #ff252e;
+    $red-500: #ff0016;
+    $red-600: #d50012;
+    $red-700: #9f000d;
+    $red-800: #6e0009;
+    $red-900: #400005;
+    $red-950: #180002;
+
+    // Deep Pink
+    $deep-pink-50: #ffe5f2;
+    $deep-pink-100: #ffb0d9;
+    $deep-pink-200: #ff7fc1;
+    $deep-pink-300: #ff52a8;
+    $deep-pink-400: #ff2692;
+    $deep-pink-500: #ff007d;
+    $deep-pink-600: #d50064;
+    $deep-pink-700: #9f004d;
+    $deep-pink-800: #6e0036;
+    $deep-pink-900: #410022;
+    $deep-pink-950: #18000f;
+
+    // Orange
+    $orange-50: #fff6e6;
+    $orange-100: #ffe2b4;
+    $orange-200: #ffd087;
+    $orange-300: #ffbe5e;
+    $orange-400: #ffab3c;
+    $orange-500: #ff9a29;
+    $orange-600: #d17b21;
+    $orange-700: #9c5d19;
+    $orange-800: #6c4111;
+    $orange-900: #3f280a;
+    $orange-950: #171104;
+
+    // Yellow
+    $yellow-50: #ffffe6;
+    $yellow-100: #feffb6;
+    $yellow-200: #fefe8b;
+    $yellow-300: #fefe65;
+    $yellow-400: #fefe49;
+    $yellow-500: #fefe3d;
+    $yellow-600: #caca30;
+    $yellow-700: #979724;
+    $yellow-800: #686819;
+    $yellow-900: #3d3d0f;
+    $yellow-950: #161605;
+
+    // Indigo
+    $indigo-50: #f5e5fe;
+    $indigo-100: #e3b1fb;
+    $indigo-200: #ce80fa;
+    $indigo-300: #ba54f8;
+    $indigo-400: #a62bf8;
+    $indigo-500: #910ff7;
+    $indigo-600: #740cc5;
+    $indigo-700: #590993;
+    $indigo-800: #3f0666;
+    $indigo-900: #26033c;
+    $indigo-950: #100116;
+
+    // Green
+    $green-50: #e1ffe6;
+    $green-100: #a5ffb5;
+    $green-200: #69ff89;
+    $green-300: #1aff63;
+    $green-400: #00ff45;
+    $green-500: #00ff00;
+    $green-600: #00cb2d;
+    $green-700: #009822;
+    $green-800: #006917;
+    $green-900: #003d0e;
+    $green-950: #001705;
+
+    // Teal
+    $teal-50: #e2ffff;
+    $teal-100: #a7fffe;
+    $teal-200: #6cfffe;
+    $teal-300: #24fffe;
+    $teal-400: #00fffe;
+    $teal-500: #00fffe;
+    $teal-600: #00cbca;
+    $teal-700: #009897;
+    $teal-800: #006968;
+    $teal-900: #003e3d;
+    $teal-950: #001716;
+
+    // Sky Blue
+    $sky-blue-50: #e7f6fb;
+    $sky-blue-100: #b7e4f2;
+    $sky-blue-200: #8ad1e9;
+    $sky-blue-300: #5dbfe2;
+    $sky-blue-400: #2faeda;
+    $sky-blue-500: #009dd2;
+    $sky-blue-600: #007da7;
+    $sky-blue-700: #005e7e;
+    $sky-blue-800: #004257;
+    $sky-blue-900: #072834;
+    $sky-blue-950: #061114;
+
+    // Dodger Blue
+    $dodger-blue-50: #e3f2fe;
+    $dodger-blue-100: #acd9fd;
+    $dodger-blue-200: #79bffb;
+    $dodger-blue-300: #48a6fa;
+    $dodger-blue-400: #138ef9;
+    $dodger-blue-500: #0077f9;
+    $dodger-blue-600: #0060c6;
+    $dodger-blue-700: #004994;
+    $dodger-blue-800: #003466;
+    $dodger-blue-900: #00203c;
+    $dodger-blue-950: #000f16;
+
+    // Blue
+    $blue-50: #e5e5fd;
+    $blue-100: #b1b1fb;
+    $blue-200: #8281f9;
+    $blue-300: #5654f8;
+    $blue-400: #302cf7;
+    $blue-500: #1a11f7;
+    $blue-600: #140ec4;
+    $blue-700: #0f0a93;
+    $blue-800: #0b0765;
+    $blue-900: #06043b;
+    $blue-950: #020216;
+/*
+| --------------------------------------------
+|   Color
+| --------------------------------------------
+*/
+    $neutral-1 : $gray-50;
+    $neutral-2 : $gray-100;
+    $neutral-3 : $gray-200;
+    $neutral-4 : $gray-400;
+    $neutral-5 : $gray-600;
+    $neutral-6 : $gray-800;
+    $neutral-7 : $gray-950;
+
+    $primary-1 : $dodger-blue-400;
+    $primary-2 : $dodger-blue-600;
+    $primary-3 : $dodger-blue-900;
+
+    $secondary-1 : $teal-100;
+    $secondary-2 : $teal-200;
+    $secondary-3 : $teal-300;
+    
+    $error-1 : $red-50;
+    $error-2 : $red-600;
+    $error-3 : $red-800;
+    
+    $warning-1 : $yellow-50;
+    $warning-2 : $yellow-600;
+    $warning-3 : $yellow-800;
+    
+    $success-1 : $green-50;
+    $success-2 : $green-600;
+    $success-3 : $green-800;
+/*
+| --------------------------------------------
+|   Font Family
+| --------------------------------------------
+*/
+    $font-family-primary   : 'Inter', sans-serif;
+    $font-family-secondary : 'Cormorant Garamond', serif;
+    $font-family-tertiary  : 'DM Serif Text', serif;
+/*
+| --------------------------------------------
+|   Font Size
+| --------------------------------------------
+*/
+    $font-size-1  : 4.0em;
+    $font-size-2  : 3.5em;
+    $font-size-3  : 3.0em;
+    $font-size-4  : 2.2em;
+    $font-size-5  : 2.0em;
+    $font-size-6  : 1.8em;
+    $font-size-7  : 1.5em;
+    $font-size-8  : 1.2em;
+    $font-size-9  : 1.0em;
+    $font-size-10 : .85em;
+/*
+| --------------------------------------------
+|   Line Height
+| --------------------------------------------
+*/
+    $line-height-tight  : 0.9em;
+    $line-height-normal : 1.1em;
+    $line-height-loose  : 1.5em;
+/*
+| --------------------------------------------
+|   Font Weight
+| --------------------------------------------
+*/
+    $font-weight-light   : 200;
+    $font-weight-regular : 300;
+    $font-weight-bold    : 700;
+    $font-weight-black   : 900;
+/*
+| --------------------------------------------
+|   Spacing
+| --------------------------------------------
+*/
+    $spacing-1  : 0.3em;
+    $spacing-2  : 0.6em;
+    $spacing-3  : 0.8em;
+    $spacing-4  : 1.0em;
+    $spacing-5  : 1.5em;
+    $spacing-6  : 2.0em;
+    $spacing-7  : 3.0em;
+    $spacing-8  : 4.0em;
+    $spacing-9  : 6.0em;
+    $spacing-10 : 8.0em;
+/*
+| --------------------------------------------
+|   Border Radius
+| --------------------------------------------
+*/
+    $border-radius-small  : 0.3em;
+    $border-radius-medium : 0.5em;
+    $border-radius-large  : 0.8em;
+    $border-radius-pill   : 100em;
+    $border-radius-circle : 50%;
+    

@@ -1,0 +1,633 @@
+:root {
+    font-size: 14px
+}
+
+@import 'reset';
+@import 'fonts';
+@import 'variables';
+@import 'mixins';
+@import 'components';
+
+body {
+    min-height: 100vh;
+}
+
+.login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .container {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-6;
+        width: 100%;
+        max-width: 20em;
+    }
+    .container .title {
+        font-size: $font-size-3;
+    }
+    .container .form {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-4;
+    }
+    .container .form .button {
+        width: 100%;
+        margin-top: $spacing-4;
+    }
+}
+.guest {
+    display: flex;
+    justify-content: center;
+    padding: $spacing-8 0;
+    > .container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-8;
+        width: 100%;
+        max-width: 40em;
+        padding: 0 $spacing-6;
+        &:has(.download-preview) {
+            width: 100%;
+            max-width: 65em;
+        }
+    }
+    > .container > header {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    > .container > header a {
+        all: unset;
+        position: absolute;
+        left: 0;
+    }
+    > .container > header a i {
+        font-size: $font-size-8;
+        padding: $spacing-1;
+        border-radius: $border-radius-circle;
+        background: rgba($neutral-7, 10%);
+        color: $neutral-7;
+        cursor: pointer;
+    }
+    > .container > header .title {
+        font-size: $font-size-4;
+        text-align: center;
+    }
+    > .container > header .button {
+        position: absolute;
+        align-self: center;
+        font-size: $font-size-9;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        min-height: fit-content;
+        padding: $spacing-1 $spacing-2;
+        cursor: pointer;
+        background: rgba($neutral-7, 10%);
+        color: $neutral-7;
+    }
+}
+.guest .index {
+    display: flex;
+    gap: $spacing-5;
+    .button {
+        @include button($type: outline);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-4;
+        height: 10em;
+        width: 100%;
+        background: $neutral-1;
+        border-color: $neutral-4;
+    }
+    .button i {
+        font-size: $font-size-4;
+    }
+    .button .title {
+        font-family: $font-family-primary;
+        font-size: $font-size-8;
+        font-weight: $font-weight-regular;
+    }
+    .number-required {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        aspect-ratio: 1/1;
+        top: -1em;
+        right: -1em;
+        width: 2em;
+        border-radius: 50%;
+        background: $error-2;
+        color: $neutral-1;
+    }
+}
+.guest .upload-index {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-4;
+    .required {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-6;
+        padding-top: $spacing-6;
+        border-top: 1px solid $neutral-3;
+    }
+    .required .title {
+        font-size: $font-size-8;
+    }
+    .required ul {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-4;
+    }
+    .required ul li {
+        display: flex;
+        align-items: center;
+        gap: $spacing-4;
+    }
+    .required ul li > i {
+        font-size: $font-size-7;
+        color: $error-2;
+    }
+    .required ul li span {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: $spacing-5;
+        width: 100%;
+        min-height: 4em;
+        padding: $spacing-4;
+        border: 1px solid $neutral-4;
+        border-radius: $border-radius-small;
+    }
+    .required ul li span .description {
+        font-family: $font-family-primary;
+        font-size: $font-size-9;
+        font-weight: $font-weight-regular;
+        line-height: $line-height-loose;
+    }
+    .required ul li span .button {
+        @include button(
+            $padding-y: $spacing-2,
+            $padding-x: $spacing-2,
+            $gap: $spacing-1,
+            $height: fit-content,
+            $font-size: $font-size-10,
+            $background: $neutral-5
+        );
+        white-space: nowrap;
+    }
+}
+.guest .download-index {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-6;
+    margin-top: -($spacing-7);
+    .feature {
+        position: sticky;
+        display: flex;
+        gap: $spacing-2;
+        top: 0;
+        padding: $spacing-7 0 $spacing-4;
+        background: $neutral-1;
+    } 
+    .feature .input:first-child {
+        width: 10em;
+    }
+    .tools {
+        display: flex;
+        align-self: end;
+        gap: $spacing-2;
+        margin-top: -($spacing-6);
+    }
+    .tools .button {
+        @include button(
+            $height: fit-content,
+            $background: $neutral-5
+        );
+        &.clear,
+        &.trash,
+        &.cancel {
+            @include button(
+                $type: outline,
+                $height: fit-content,
+                $background: $neutral-5
+            )
+        }
+        &#hide-select-file,
+        &#downloads,
+        &#deletes,
+        &#select-all {
+            display: none;
+        }
+    }
+    #error-select-file {
+        align-self: end;
+        margin-top: -$spacing-5;
+    }
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-4;
+    }
+    ul .select-file {
+        display: none;
+        font-size: $font-size-5;
+        cursor: pointer;
+    }
+    ul li {
+        display: flex;
+        gap: $spacing-2;
+    }
+    ul li span {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        cursor: pointer;
+        overflow: hidden;
+        border: 1px solid $neutral-5;
+        border-radius: $border-radius-small;
+    }
+    ul li span .title {
+        display: flex;
+        align-items: center;
+        font-family: $font-family-primary;
+        font-size: $font-size-9;
+        font-weight: $font-weight-regular;
+        min-height: 4em;
+        gap: $spacing-3;
+        padding: $spacing-4;
+        background: $neutral-1;
+    }
+    ul li span .action {
+        display: none;
+        justify-content: space-between;
+        align-items: center;
+        gap: $spacing-4;
+        padding: $spacing-2 $spacing-4;
+        background: $neutral-5;
+    }   
+    ul li span .action .date {
+        font-family: $font-family-primary;
+        font-size: $font-size-10;
+        color: $neutral-3;
+    }
+    ul li span .action .buttons {
+        display: flex;
+        align-items: center;
+        gap: $spacing-1;
+    }
+    ul li span .action .buttons .button {
+        @include button(
+            $type: outline,
+            $padding-y: .4em,
+            $padding-x: .4em,
+            $height: fit-content,
+            $font-size: $font-size-10,
+            $background: $neutral-2,
+        );
+        border-color: rgba($neutral-2, 50%)
+    }
+}
+.guest .download-preview {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-5;
+    .action {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: $spacing-4;
+    }   
+    .action .info {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-1;
+    }
+    .action .info h3 {
+        font-family: $font-family-primary;
+        font-size: $font-size-10;
+        font-weight: $font-weight-regular;
+        color: $neutral-6;
+    }
+    .action .buttons {
+        display: flex;
+        align-items: center;
+        gap: $spacing-2;
+    }
+    .action .buttons .button {
+        @include button(
+            $type: outline,
+            $padding-y: $spacing-2,
+            $padding-x: $spacing-2,
+            $gap: $spacing-1,
+            $height: fit-content,
+            $font-size: $font-size-10,
+            $background: $neutral-5
+        )
+    }
+    > img {
+        width: 100%;
+    }
+    > iframe {
+        height: 66vh;
+        width: 100%;
+        border: 2px solid $neutral-6;
+    }
+}
+.guest .download-trash {
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-4;
+    }
+    ul li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: $spacing-5;
+        min-height: 4em;
+        padding: $spacing-4;
+        border: 1px solid $neutral-4;
+        border-radius: $border-radius-small;
+    }
+    ul li .title {
+        display: flex;
+        gap: $spacing-3;
+        font-family: $font-family-primary;
+        font-size: $font-size-9;
+        font-weight: $font-weight-regular;
+    }
+    ul li .action .buttons {
+        display: flex;
+        align-items: center;
+        gap: $spacing-2;
+    }
+    ul li .action .buttons > div {
+        .button {
+            @include button(
+                $type: outline,
+                $padding-y: $spacing-2,
+                $padding-x: $spacing-2,
+                $gap: $spacing-1,
+                $height: fit-content,
+                $font-size: $font-size-10,
+                $background: $neutral-5
+            );
+        }
+        &:last-child .button {
+            @include button(
+                $padding-y: $spacing-2,
+                $padding-x: $spacing-2,
+                $gap: $spacing-1,
+                $height: fit-content,
+                $font-size: $font-size-10,
+                $background: $neutral-5
+            );
+        }
+    }
+}
+
+.admin {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    gap: $spacing-7;
+    padding: $spacing-6;
+    box-sizing: border-box;
+    overflow: hidden;
+    > span {
+        cursor: pointer;
+    }
+    > .sidebar {
+        display: none;
+        flex-direction: column;
+        gap: $spacing-5;
+        width: 100%;
+        max-width: 17em;
+        padding: $spacing-7 $spacing-6 $spacing-6;
+        border-radius: $border-radius-large;
+        box-shadow: 5px 5px 10px rgba($neutral-7, 2%);
+        border: 1px solid rgba($neutral-4, 10%);
+        background: $neutral-2;
+        #closeSidebar {
+            align-self: end;
+            cursor: pointer;
+        }
+    }
+    > .sidebar .banner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: $spacing-2;
+    }
+    > .sidebar .banner .title {
+        font-size: $font-size-7;
+    }
+    > .sidebar .menu {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-1;
+    }
+    > .sidebar .menu a {
+        text-decoration: none;
+        width: 100%;
+        padding: $spacing-1 $spacing-3;
+        border-radius: $border-radius-small;
+        color: $neutral-5;
+        &:hover {
+            background: rgba($neutral-4, 10%);
+            color: $neutral-7;
+        }
+    }
+    > .sidebar > div:last-child {
+        display: flex;
+        margin-top: auto;
+        .button {
+            @include button(
+                $type: outline,
+                $font-size: $font-size-9,
+                $height: fit-content,
+                $padding-y: $spacing-2,
+                $padding-x:  $spacing-2
+            )
+        }
+    }
+    > section {
+        width: 100%;
+        padding: $spacing-6;
+        overflow: auto;
+    }
+    > section > .title {
+        font-size: $font-size-5;
+    }
+}
+.admin .index {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-6;
+    .form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: $spacing-4;
+    }
+}
+.admin .pegawai-index {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-7;
+    > .form {
+        display: flex;
+        align-items: end;
+        gap: $spacing-2;
+    }
+    .table-container {
+        width: 100%;
+        height: 100vh;
+        overflow: scroll;
+    }
+    .table-container .table {
+        width: 100%;
+        tbody .form tr td {
+            vertical-align: top;
+        }
+        td .input {
+            min-width: 15em;
+            min-height: 0;
+            input {
+                height: 31px;
+            }
+        }
+        td .button {
+            min-height: 31px;
+            width: 100%;
+        }
+    }
+    .table-container .table .head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .button {
+            @include button($type: text);
+            min-height: 0;
+            padding: 0;
+        }
+    }
+    .table-container .table .action {
+        display: flex;
+        gap: $spacing-1;
+        .button {
+            @include button($type: outline);
+            min-height: 31px;
+            width: 6em;
+        }
+    }
+    .table-container .table .action-confirm {
+        display: none;
+        gap: $spacing-1;
+        .button {
+            @include button($type: outline);
+            min-height: 31px;
+            width: 6em;
+            &:last-child {
+                @include button();
+                min-height: 31px;
+                width: 6em;
+            }
+        }
+    }
+}
+
+.empty {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: $font-family-primary;
+    font-size: $font-size-10;
+    color: rgba($neutral-7, 30%);
+}
+.error {
+    font-family: $font-family-primary;
+    font-size: $font-size-10;
+    font-weight: $font-weight-regular;
+    line-height: $line-height-loose;
+    color: $error-2;
+}
+
+.modal-confirm {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-5;
+    width: 100%;
+    max-width: 30em;
+    .title {
+        font-size: $font-size-7;
+    }
+    .buttons {
+        display: flex;
+        gap: $spacing-2;
+        margin-top: $spacing-2;
+    }
+    .form {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-3;
+        width: 100%;
+    }
+    .buttons 
+        .form {
+            width: 100%;
+            .button {
+                width: 100%
+            }
+        }
+        .button {
+            width: 100%;
+            &:first-child {
+            @include button($type: outline);
+            width: 100%;
+        }
+    }
+}
+.drop-file {
+    .buttons {
+        justify-content: end;
+        gap: $spacing-2 !important;
+        .button {
+            width: 2em !important;
+            min-height: fit-content !important;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .admin {
+        position: relative;
+        > span {
+            position: fixed;
+        }
+        > .sidebar {
+            position: fixed;
+            right: $spacing-6;
+            left: $spacing-6;
+            width: 100%;
+            min-width: 86vw;
+            padding: $spacing-5;
+            z-index: 90;
+        }
+        > .sidebar > .banner {
+            display: none;
+        }
+        > section {
+            padding: 0;
+            padding-top: $spacing-7;
+        }
+    }
+}

@@ -1,0 +1,366 @@
+/*
+| --------------------------------------------
+|   Buttons
+| --------------------------------------------
+*/
+    @mixin button(
+        $type          : default,
+        $align         : center,
+        $font-family   : $font-family-primary,
+        $font-size     : $font-size-9,
+        $font-weight   : $font-weight-regular,
+        $gap           : $spacing-2,
+        $height        : 44px,
+        $width         : fit-content,
+        $padding-y     : $spacing-2,
+        $padding-x     : $spacing-3,
+        $border-width  : 1px,
+        $border-radius : $border-radius-small,
+        $border-color  : $demon-10,
+        $background    : $neutral-6,
+        $color         : $neutral-1
+    ) {
+        all: unset;
+        display: inline-flex;
+        align-items: center;
+        font-family: $font-family;
+        font-size: $font-size;
+        font-weight: $font-weight;
+        text-decoration: none;
+        line-height: $line-height-normal;
+        gap: $gap;
+        height: fit-content;
+        width: fit-content;
+        min-height: $height;
+        min-width: $width;
+        margin: 0;
+        padding: $padding-y $padding-x;
+        padding-bottom: calc(#{$padding-y} - (#{$line-height-normal} - 1em));
+        box-sizing: border-box;
+        outline: none;
+        cursor: pointer;
+        user-select: none;
+        border-width: $border-width;
+        border-style: solid;
+        border-radius: $border-radius;
+        
+        @if $align == left {
+            justify-content: start;
+            text-align: left;
+        } @else if $align == right {
+            justify-content: end;
+            text-align: right;
+        } @else if $align == justify {
+            justify-content: space-between;
+            text-align: center;
+        } @else {
+            justify-content: center;
+            text-align: center;
+        }
+        
+        @if $type == outline {
+            border-color: $background;
+            background: transparent;
+            color: $background;
+        } @else if $type == text {
+            border-color: transparent;
+            background: transparent;
+            color: $background;
+        } @else {
+            border-color: $border-color;
+            background: $background;
+            color: $color;
+        }
+        
+        &:hover {
+            opacity: .8;
+        }
+        &:disabled {
+            opacity: .5;
+            cursor: not-allowed;
+        }
+    }
+/*
+| --------------------------------------------
+|   Label
+| --------------------------------------------
+*/
+    @mixin label(
+        $font-family   : $font-family-primary,
+        $font-size     : $font-size-10,
+        $font-weight   : $font-weight-regular,
+        $color         : $neutral-7
+    ) {
+        display: flex;
+        align-items: center;
+        font-family: $font-family;
+        font-size: $font-size;
+        font-weight: $font-weight + 100;
+        gap: $spacing-1;
+        color: rgba($color, 50%);
+        span {
+            font-size: $font-size-10 + .5em;
+            font-weight: $font-weight-regular;
+            line-height: 0;
+            color: $error-2;
+        }
+    }
+/*
+| --------------------------------------------
+|   Inputs
+| --------------------------------------------
+*/
+    @mixin input(
+        $font-family   : $font-family-primary,
+        $font-size     : $font-size-9,
+        $font-weight   : $font-weight-regular,
+        $height        : 44px,
+        $width         : 100%,
+        $padding-y     : $spacing-2,
+        $padding-x     : $spacing-2,
+        $border-width  : 1px,
+        $border-radius : $border-radius-small,
+        $border-color  : $neutral-6,
+        $background    : transparent,
+        $color         : $neutral-7
+    ) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: $spacing-2;
+        min-height: $height;
+        width: $width;
+        input, textarea, select {
+            display: inline-block;            
+            font-family: $font-family;
+            font-size: $font-size;
+            font-weight: $font-weight;
+            height: $height;
+            width: 100%;
+            margin: 0;
+            padding: $padding-y $padding-x;
+            outline: none;
+            box-sizing: border-box;
+            border-width: $border-width;
+            border-style: solid;
+            border-color: rgba($color, 40%);
+            border-radius: $border-radius;
+            background: $background;
+            &:focus {
+                border-color: $border-color;
+            }
+            &:disabled {
+                cursor: not-allowed;
+                opacity: .8;
+            }
+            &::placeholder {
+                color: rgba($color, 30%);
+            }
+        }
+        .range {
+            appearance: none;
+            height: 10px;
+            border-radius: $border-radius-small;  
+            background: rgba($color, 20%);
+            outline: none;
+            opacity: 70%;
+            transition: opacity .2s;
+            &:hover {
+                opacity: 1;
+            }
+            &::-webkit-slider-thumb {
+                appearance: none;
+                aspect-ratio: 1/1;
+                width: 18px;
+                border-radius: 50%; 
+                background: $border-color;
+                cursor: pointer;
+            }
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: $spacing-2;
+            width: $width;
+            label {
+                display: flex;
+                align-items: center;
+                justify-content: start;
+                font-family: $font-family;
+                gap: $spacing-2;
+                width: fit-content;
+                cursor: pointer;
+                input {
+                    height: fit-content;
+                    width: fit-content;
+                }
+            }
+        }
+        .color {
+            appearance: none;
+            margin: 0;
+            padding: 0;
+            block-size: $height;
+            inline-size: $height;
+            cursor: pointer;
+            border: none;
+            background: none;
+            &::-webkit-color-swatch-wrapper {
+                padding: 0;
+            }
+            &::-webkit-color-swatch {
+                border-width: $border-width;
+                border-color: $border-color;
+                border-radius: $border-radius;
+            }
+        }
+        .drop-file {
+            display: flex;
+            flex-direction: column;
+            gap: $spacing-2;
+            .drop-file-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: $spacing-2;
+                min-height: 11.7em;
+                padding: $spacing-5;
+                border-width: $border-width;
+                border-style: dashed;
+                border-color: rgba($color, 40%);
+                border-radius: $border-radius;
+                background: rgba($neutral-7, 2%);
+                > .form {
+                    display: flex;
+                    flex-direction: column;
+                    gap: $spacing-2;
+                    width: 100%;
+                    .file-input {
+                        display: flex;
+                        input {
+                            &:first-child {
+                                border-top-right-radius: 0;
+                                border-bottom-right-radius: 0;
+                            }
+                            &:last-child {
+                                border-top-left-radius: 0;
+                                border-bottom-left-radius: 0;
+                                border-left: 0;
+                                width: 4em;
+                                background: rgba($color, 2%);
+                            }
+                        }
+                    }
+                    .buttons {
+                        display: flex;
+                        gap: $spacing-3;
+                        margin-top: $spacing-2;
+                        .button {
+                            width: 100%;
+                            &:first-child {
+                                @include button($type: outline);
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+                > label {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    font-family: $font-family;
+                    font-size: $font-size;
+                    font-weight: $font-weight;
+                    text-align: center;
+                    gap: $spacing-2;
+                    height: 100%;
+                    width: 100%;
+                    cursor: pointer;
+                    input {
+                        display: none;
+                    }
+                    small {
+                        margin: $spacing-1;
+                        color: rgba($color, 40%);   
+                    }
+                }
+            }
+        }
+        textarea {
+            height: fit-content;
+        }
+        .select {
+            position: relative;
+            select {
+                appearance: none;
+                cursor: pointer;
+            }
+            &::after {
+                content: '\25BE';
+                position: absolute;
+                display: flex;
+                align-items: center;
+                top: 0;
+                right: $padding-x;
+                bottom: 0;
+                user-select: none;
+                pointer-events: none;
+            }
+        }
+        .select-search {
+            position: relative;
+            ul {
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                left: $spacing-3;
+                right: $spacing-3;
+                margin-top: $spacing-2;
+                padding: $spacing-4 0 ;
+                border-radius: $border-radius-small;
+                background: $neutral-5;
+                border: 1px solid $neutral-6;
+                z-index: 80;
+                box-shadow: 3px 3px 5px rgba($neutral-5, 10%);
+            }
+            ul > small {
+                margin-bottom: $spacing-1;
+                color: $neutral-4;
+                padding: 0 $spacing-4;
+            }
+            ul li {
+                font-family: $font-family-primary;
+                font-size: $font-size-9;
+                font-weight: $font-weight-regular;
+                padding: $spacing-2 $spacing-6;
+                color: $neutral-1;
+                cursor: pointer;
+                &:hover,
+                .highlighted {
+                    background: rgba($neutral-1, 15%);
+                }
+            }
+            .highlighted {
+                background: rgba($neutral-1, 25%);
+            }
+            ul li small {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                text-align: center;
+                right: 0;
+                left: 0;
+                width: 100%;
+                padding: 0;
+                color: $neutral-2;
+            }
+        }
+        .error {
+            font-family: $font-family;
+            font-size: $font-size-10;
+            font-weight: $font-weight-regular;
+            line-height: $line-height-loose;
+            color: $error-2;
+        }
+    }

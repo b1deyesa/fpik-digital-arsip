@@ -1,0 +1,183 @@
+/*
+| --------------------------------------------
+|   Modal
+| --------------------------------------------
+*/
+    .modal {
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: $spacing-6;
+        background: rgba($neutral-7, 70%);
+        backdrop-filter: blur(5px);
+        .container-modal {
+            position: relative;
+            padding: $spacing-5;
+            border-radius: $border-radius-small;
+            background: $neutral-1;
+            .close-modal {
+                all: unset;
+                position: absolute;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                aspect-ratio: 1/1;
+                top: 1.5em;
+                right: 1.2em;
+                width: 1.5em;
+                cursor: pointer;
+                border-radius: $border-radius-circle;
+                background: $neutral-2;
+            }
+        }
+    }
+/*
+| --------------------------------------------
+|   Alert
+| --------------------------------------------
+*/
+    .alert {
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+        font-size: .9em;
+        top: 2em;
+        right: 0;
+        left: 0;
+        gap: 1em;
+        padding: 0 $spacing-6;
+        opacity: 0;
+        visibility: hidden;
+        animation: fadeIn 10s;
+        z-index: 200;
+        .alert-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1em;
+            width: 100%;
+            min-height: 4em;
+            max-width: 25em;
+            padding: $spacing-4;
+            border-radius: $border-radius-small;
+            background: $neutral-3;
+            border: 1px solid $neutral-4;
+            .close {
+                cursor: pointer;
+                pointer-events: visible;
+            }
+            &.success {
+                background: $success-1;
+                border-color: darken($success-1, 10%);
+            }
+            &.warning {
+                background: $warning-1;
+                border-color: darken($warning-1, 10%);
+            }
+            &.danger {
+                background: $error-1;
+                border-color: darken($error-1, 10%);
+            }
+        }
+        @keyframes fadeIn {
+            0%   { visibility: hidden; opacity: 0; transform: translateY(0); }
+            10%  { visibility: visible; opacity: 1; transform: translateY(2em); }
+            90%  { visibility: visible; opacity: 1; transform: translateY(2em); }
+            100% { visibility: hidden; opacity: 0; transform: translateY(0); }
+        }
+    }
+/*
+| --------------------------------------------
+|   Table
+| --------------------------------------------
+*/
+    .table {
+        font-size: $font-size-10;
+        th {
+            font-family: $font-family-primary;
+            font-size: $font-size-9;
+            padding: $spacing-3;
+            border: 1px solid $neutral-5;
+            background: $neutral-2;
+        }
+        tr {
+            td {
+                font-family: $font-family-primary;
+                font-size: $font-size-9;
+                vertical-align: middle;
+                line-height: $line-height-loose;
+                padding: $spacing-2 $spacing-3;
+                border-left: 1px solid $neutral-5;
+                border-right: 1px solid $neutral-5;
+                border-bottom: 1px dashed $neutral-4;
+                &.empty {
+                    display: table-cell;
+                    font-family: $font-family-primary;
+                    font-size: $font-size-9;
+                    vertical-align: middle;
+                    height: 8em;
+                    color: rgba($neutral-7, 30%);
+                }
+            }
+            &:last-child td {
+                border-bottom: 1px solid $neutral-5
+            }
+        }
+    }
+/*
+| --------------------------------------------
+|   Input
+| --------------------------------------------
+*/
+    .input {
+        @include input();
+    }
+/*
+| --------------------------------------------
+|   Label
+| --------------------------------------------
+*/
+    .label {
+        @include label();
+    }
+/*
+| --------------------------------------------
+|   Button
+| --------------------------------------------
+*/
+    .button {
+        @include button();
+    }
+/*
+| --------------------------------------------
+|   Typographys
+| --------------------------------------------
+*/
+    h1, h2, h3, h4, h5, h6 {
+        font-family: $font-family-tertiary;
+        font-weight: $font-weight-bold;
+        line-height: $line-height-normal;
+    }
+    p, a, i {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-regular;
+        line-height: $line-height-loose;
+    }
+    b {
+        font-family: $font-family-primary;
+        font-weight: $font-weight-bold;
+        line-height: $line-height-normal;
+    }
+    small {
+        font-family: $font-family-primary;
+        font-size: $font-size-10;
+        line-height: $line-height-loose;
+    }
