@@ -7,6 +7,7 @@
         </div>
         <div class="menu">
             <a href="{{ route('admin.index') }}">Permintaan File</a>
+            <a href="{{ route('admin.arsip.index') }}">Arsip</a>
             <a href="{{ route('admin.pegawai.index') }}">Data Pegawai</a>
         </div>
         <x-modal class="modal-confirm">

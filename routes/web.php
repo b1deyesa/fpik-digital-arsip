@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\ArsipController;
 use App\Http\Controllers\Admin\DataController;
 use App\Http\Controllers\Admin\PegawaiController;
 use App\Http\Controllers\Admin\RequestController;
@@ -50,6 +51,7 @@ Route::middleware('auth')->name('admin.')->group(function () {
     Route::get('/admin/request/download/{file}', [RequestController::class, 'download'])->name('request.download');
     Route::get('/admin/pegawai', [PegawaiController::class, 'index'])->name('pegawai.index');
     Route::post('/admin/pegawai', [PegawaiController::class, 'store'])->name('pegawai.store');
+    Route::get('/admin/arsip', [ArsipController::class, 'index'])->name('arsip.index');
     Route::put('/admin/pegawai/{pegawai}/edit', [PegawaiController::class, 'update'])->name('pegawai.update');
     Route::delete('/admin/pegawai/{pegawai}', [PegawaiController::class, 'destroy'])->name('pegawai.destroy');
     Route::post('/admin/data', [DataController::class, 'store'])->name('data.store');
